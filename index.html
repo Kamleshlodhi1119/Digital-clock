@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock and Quote</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>body {
+    background-color: #191970;
+}
+
+        .clock-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 200px;
+            width: 300px;
+            font-size: 5rem;
+            background-color: #AFEEEE;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #hours {
+            color: #ff0000;
+        }
+
+        #minutes {
+            color: #2F4F4F;
+        }
+
+        #seconds {
+            color: #0000ff;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="time-display">
+            <span id="hours"></span> : <span id="minutes"></span> : <span id="seconds"></span>
+        </div>
+        <div class="quote">
+            <p>"Anything in life worth achieving requires practice."<br>~Kamleshlodhi1119</p>
+        </div>
+    </div>
+    
+    <script>
+        function updateClock() {
+            const clockContainer = document.querySelector('.clock-container');
+            const hoursSpan = document.querySelector('#hours');
+            const minutesSpan = document.querySelector('#minutes');
+            const secondsSpan = document.querySelector('#seconds');
+
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            hoursSpan.textContent = hours.toString().padStart(2, '0');
+            minutesSpan.textContent = minutes.toString().padStart(2, '0');
+            secondsSpan.textContent = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
